@@ -5,6 +5,7 @@ import racket.ApecsRacket;
 import racket.GosenRacket;
 import racket.JoobongRacket;
 import racket.Racket;
+import racket.RacketCompany;
 import racket.VictorRacket;
 
 public class RacketManager {
@@ -19,37 +20,37 @@ public class RacketManager {
 		while (kind > 5 || kind < 1) {
 			System.out.println("1 : Yoenx");
 			System.out.println("2 : Gosen");
-			System.out.println("3 : Voctor");
+			System.out.println("3 : Victor");
 			System.out.println("4 : Apecs");
 			System.out.println("5 : Joobong");
 			System.out.println("Select num for Racket Company between 1 to 5 : ");
 			
 			kind = input.nextInt();
 			if (kind == 1) {
-				racket = new Racket();
+				racket = new Racket(RacketCompany.Yonex);
 				racket.getUserInput(input);
 				rackets.add(racket);
 				break;
 			}
 			else if (kind == 2) {
-				racket = new GosenRacket();
+				racket = new GosenRacket(RacketCompany.Gosen);
 				racket.getUserInput(input);
 				rackets.add(racket);
 				break;
 			}
 			else if (kind == 3) {
-				racket = new VictorRacket();
+				racket = new VictorRacket(RacketCompany.Victor);
 				racket.getUserInput(input);
 				rackets.add(racket);
 				break;
 			}
 			else if (kind == 4) {
-				racket = new ApecsRacket();
+				racket = new ApecsRacket(RacketCompany.Apecs);
 				rackets.add(racket);
 				break;
 			}
 			else if (kind == 5) {
-				racket = new JoobongRacket();
+				racket = new JoobongRacket(RacketCompany.Joobong);
 				rackets.add(racket);
 				break;
 			}

@@ -3,7 +3,7 @@ package racket;
 import java.util.Scanner;
 
 public class Racket {
-	protected RacketCompany company = RacketCompany.Yonex;
+	protected RacketCompany company;
 	protected String name;
 	protected int price;
 	protected String madeCountry;
@@ -14,6 +14,10 @@ public class Racket {
 	public Racket() {
 		
 	}
+	public Racket(RacketCompany company) {
+		this.company = company;
+	}
+	
 	public Racket(String name, int number) {
 		this.name = name;
 		this.number = number;
@@ -23,8 +27,20 @@ public class Racket {
 		this.price = price;
 		this.madeCountry = madeCountry;
 		this.number = number;
-	
 	}
+	public Racket(RacketCompany company, String name, int price, String madeCountry, int number) {
+		this.company = company;
+		this.name = name;
+		this.price = price;
+		this.madeCountry = madeCountry;
+		this.number = number;
+	}
+	
+	
+	
+	
+	
+	
 	public RacketCompany getCompany() {
 		return company;
 	}
@@ -58,7 +74,27 @@ public class Racket {
 
 
 	public void printInfo() {
-		System.out.println("Racket : " + name + "\tcompany : " + company + "\tprice : " + price + "\tmadecountry : " + madeCountry + "\tnumber : " + number);
+		String scompany = "none";
+		switch(this.company) {
+		case Yonex:
+			scompany = "Yonex";
+			break;
+		case Gosen:
+			scompany = "Gosen";
+			break;
+		case Victor:
+			scompany = "Victor";
+			break;
+		case Apecs:
+			scompany = "Apecs";
+			break;
+		case Joobong:
+			scompany = "Joobong";
+			break;
+		default:
+		}
+		System.out.println("Racket : " + name + "\tcompany : " + scompany + "\tprice : " + price + "\tmadecountry : " + madeCountry + "\tnumber : " + number);
+		
 	}
 	
 	public void getUserInput(Scanner input) {

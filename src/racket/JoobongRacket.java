@@ -3,6 +3,9 @@ package racket;
 import java.util.Scanner;
 
 public class JoobongRacket extends Racket {
+	public JoobongRacket(RacketCompany company) {
+		super(company);
+	}
 	public void getUserInput(Scanner input) {
 		
 		System.out.print("Racket's name : ");

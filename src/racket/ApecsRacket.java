@@ -3,6 +3,10 @@ package racket;
 import java.util.Scanner;
 
 public class ApecsRacket extends Racket {
+	
+	public ApecsRacket(RacketCompany company) {
+		super(company);
+	}
 	public void getUserInput(Scanner input) {
 		
 		System.out.print("Racket's name : ");
