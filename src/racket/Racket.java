@@ -2,7 +2,7 @@ package racket;
 
 import java.util.Scanner;
 
-public class Racket {
+public abstract class Racket {
 	protected RacketCompany company;
 	protected String name;
 	protected int price;
@@ -10,7 +10,6 @@ public class Racket {
 	protected int number;
 	
 	
-
 	public Racket() {
 		
 	}
@@ -35,10 +34,6 @@ public class Racket {
 		this.madeCountry = madeCountry;
 		this.number = number;
 	}
-	
-	
-	
-	
 	
 	
 	public RacketCompany getCompany() {
@@ -73,47 +68,7 @@ public class Racket {
 	}
 
 
-	public void printInfo() {
-		String scompany = "none";
-		switch(this.company) {
-		case Yonex:
-			scompany = "Yonex";
-			break;
-		case Gosen:
-			scompany = "Gosen";
-			break;
-		case Victor:
-			scompany = "Victor";
-			break;
-		case Apecs:
-			scompany = "Apecs";
-			break;
-		case Joobong:
-			scompany = "Joobong";
-			break;
-		default:
-		}
-		System.out.println("Racket : " + name + "\tcompany : " + scompany + "\tprice : " + price + "\tmadecountry : " + madeCountry + "\tnumber : " + number);
-		
-	}
+	public abstract void printInfo();
 	
-	public void getUserInput(Scanner input) {
-		
-		System.out.print("Racket's name : ");
-		String name = input.next();
-		this.setName(name);
-		
-		System.out.print("Racket's price : ");
-		int price = input.nextInt();
-		this.setPrice(price);
-		
-		System.out.print("Racket's madecountry : ");
-		String madeCountry = input.next();
-		this.setMadeCountry(madeCountry);
-		
-		System.out.print("Racket's number : ");
-		int number = input.nextInt();
-		this.setNumber(number);
-		
-	}
+
 }

@@ -6,17 +6,20 @@ import racket.GosenRacket;
 import racket.JoobongRacket;
 import racket.Racket;
 import racket.RacketCompany;
+import racket.RacketInput;
 import racket.VictorRacket;
+import racket.YonexRacket;
 
 public class RacketManager {
-	ArrayList<Racket> rackets = new ArrayList<Racket>();
+	ArrayList<RacketInput> rackets = new ArrayList<RacketInput>();
 	Scanner input;
 	RacketManager(Scanner input){
 		this.input = input;
 	}
 	public void AddRacket() {
 		int kind = 0;
-		Racket racket;
+		RacketInput racketinput;
+		
 		while (kind > 5 || kind < 1) {
 			System.out.println("1 : Yoenx");
 			System.out.println("2 : Gosen");
@@ -27,31 +30,31 @@ public class RacketManager {
 			
 			kind = input.nextInt();
 			if (kind == 1) {
-				racket = new Racket(RacketCompany.Yonex);
-				racket.getUserInput(input);
-				rackets.add(racket);
+				racketinput = new YonexRacket(RacketCompany.Yonex);
+				racketinput.getUserInput(input);
+				rackets.add(racketinput);
 				break;
 			}
 			else if (kind == 2) {
-				racket = new GosenRacket(RacketCompany.Gosen);
-				racket.getUserInput(input);
-				rackets.add(racket);
+				racketinput = new GosenRacket(RacketCompany.Gosen);
+				racketinput.getUserInput(input);
+				rackets.add(racketinput);
 				break;
 			}
 			else if (kind == 3) {
-				racket = new VictorRacket(RacketCompany.Victor);
-				racket.getUserInput(input);
-				rackets.add(racket);
+				racketinput = new VictorRacket(RacketCompany.Victor);
+				racketinput.getUserInput(input);
+				rackets.add(racketinput);
 				break;
 			}
 			else if (kind == 4) {
-				racket = new ApecsRacket(RacketCompany.Apecs);
-				rackets.add(racket);
+				racketinput = new ApecsRacket(RacketCompany.Apecs);
+				rackets.add(racketinput);
 				break;
 			}
 			else if (kind == 5) {
-				racket = new JoobongRacket(RacketCompany.Joobong);
-				rackets.add(racket);
+				racketinput = new JoobongRacket(RacketCompany.Joobong);
+				rackets.add(racketinput);
 				break;
 			}
 			else {
@@ -85,8 +88,8 @@ public class RacketManager {
 		System.out.print("Racket's number");
 		int racket_number = input.nextInt();
 		for(int i = 0; i<rackets.size(); i++) {
-			Racket racket = rackets.get(i);
-			if (rackets.get(i).getNumber() == racket_number) {
+			RacketInput racketinput = rackets.get(i);
+			if (racketinput.getNumber() == racket_number) {
 				int num = -1;
 				while(num!= 6) {
 					System.out.println("- Racket Info Edit Menu -");
@@ -100,22 +103,22 @@ public class RacketManager {
 					if (num == 1) {
 						System.out.println("racket's number : ");
 						int number = input.nextInt();
-						racket.setNumber(number);
+						racketinput.setNumber(number);
 					}
 					else if(num == 2) {
 						System.out.println("racket's name : ");
 						String name = input.next();
-						racket.setName(name);
+						racketinput.setName(name);
 					}
 					else if(num == 3) {
 						System.out.println("racket's price : ");
 						int price = input.nextInt();
-						racket.setPrice(price);
+						racketinput.setPrice(price);
 					}
 					else if(num == 4) {
 						System.out.println("racket's madecountry : ");
 						String madeCountry = input.next();
-						racket.setMadeCountry(madeCountry);
+						racketinput.setMadeCountry(madeCountry);
 					}
 					else {
 						continue;

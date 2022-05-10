@@ -2,7 +2,7 @@ package racket;
 
 import java.util.Scanner;
 
-public class JoobongRacket extends Racket {
+public class JoobongRacket extends Racket implements RacketInput{
 	public JoobongRacket(RacketCompany company) {
 		super(company);
 	}
@@ -37,5 +37,28 @@ public class JoobongRacket extends Racket {
 		System.out.print("Racket's number : ");
 		int number = input.nextInt();
 		this.setNumber(number);
+	}
+	public void printInfo() {
+		String scompany = "none";
+		switch(this.company) {
+		case Yonex:
+			scompany = "Yonex";
+			break;
+		case Gosen:
+			scompany = "Gosen";
+			break;
+		case Victor:
+			scompany = "Victor";
+			break;
+		case Apecs:
+			scompany = "Apecs";
+			break;
+		case Joobong:
+			scompany = "Joobong";
+			break;
+		default:
+		}
+		System.out.println("Racket : " + name + "\tcompany : " + scompany + "\tprice : " + price + "\tmadecountry : " + madeCountry + "\tnumber : " + number);
+		
 	}
 }

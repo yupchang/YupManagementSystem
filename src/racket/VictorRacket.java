@@ -2,7 +2,7 @@ package racket;
 
 import java.util.Scanner;
 
-public class VictorRacket extends Racket {
+public class VictorRacket extends Racket implements RacketInput {
 	
 	protected String YmadeCountry;
 	protected String exportedCountry;
