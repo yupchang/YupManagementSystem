@@ -2,12 +2,15 @@ package racket;
 
 import java.util.Scanner;
 
-public abstract class Racket {
+import exception.PriceFormatException;
+
+public abstract class Racket implements RacketInput {
 	protected RacketCompany company;
 	protected String name;
 	protected int price;
 	protected String madeCountry;
 	protected int number;
+	protected String exportedCountry;
 	
 	
 	public Racket() {
@@ -51,7 +54,10 @@ public abstract class Racket {
 	public int getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(int price) throws PriceFormatException {
+		if(price>500000 || price<10000) {
+			throw new PriceFormatException();
+		}
 		this.price = price;
 	}
 	public String getMadeCountry() {
@@ -66,9 +72,79 @@ public abstract class Racket {
 	public void setNumber(int number) {
 		this.number = number;
 	}
+	public void setExport(String exportedCountry) {
+		this.exportedCountry = exportedCountry;
+	}
+	public String getExport() {
+		return this.exportedCountry;
+	}
 
 
 	public abstract void printInfo();
 	
+	public void setRacketNumber(Scanner input) {
+		System.out.println("racket's number : ");
+		int number = input.nextInt();
+		this.setNumber(number);
+	}
+	
+	public void setRacketName(Scanner input) {
+		System.out.println("racket's name : ");
+		String name = input.next();
+		this.setName(name);
+	}
+	
+	public void setRacketPrice(Scanner input) {
+		int price = 0;
+		while (price>500000 || price<10000) {
+			System.out.println("racket's price : ");
+			price = input.nextInt();
+			try {
+				this.setPrice(price);
+			} catch (PriceFormatException e) {
+				System.out.println("Strange price. Put price between 10000 and 500000");
+			}
+		}
+
+	}
+	
+	public void setRacketMadeCountry(Scanner input) {
+		char answer = 'x';
+		while (answer != 'Y' && answer != 'y' && answer != 'n' && answer != 'N') {
+			System.out.println("Do you know where is the madecountry? (Y/N)");
+			answer = input.next().charAt(0);
+			if (answer == 'y' || answer == 'Y') {
+				System.out.println("Input racket's madecountry.");
+				String a = input.next();
+				this.setMadeCountry(a);
+				break;
+			}
+			else if (answer == 'n' || answer == 'N') {
+				this.setMadeCountry("");
+				break;
+			}
+			else {
+			}
+		}
+	}
+	public void setRacketExportCountry(Scanner input) {
+		char answer = 'x';
+		while (answer != 'Y' && answer != 'y' && answer != 'n' && answer != 'N') {
+			System.out.println("Do you know which country exported this racket? (Y/N)");
+			answer = input.next().charAt(0);
+			if (answer == 'y' || answer == 'Y') {
+				System.out.println("Input racket's exportcountry");
+				String a = input.next();
+				setExport(a);
+				break;
+			}
+			else if (answer == 'n' || answer == 'N') {
+				this.setExport("");
+				break;
+			}
+			else {
+			}
+		}	
+	}
 
 }

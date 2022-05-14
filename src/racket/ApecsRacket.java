@@ -2,42 +2,23 @@ package racket;
 
 import java.util.Scanner;
 
-public class ApecsRacket extends Racket implements RacketInput{
+public class ApecsRacket extends Racket{
 	
 	public ApecsRacket(RacketCompany company) {
 		super(company);
 	}
 	public void getUserInput(Scanner input) {
 		
-		System.out.print("Racket's name : ");
-		String name = input.next();
-		this.setName(name);
+		setRacketNumber(input);
 		
-		System.out.print("Racket's price : ");
-		int price = input.nextInt();
-		this.setPrice(price);
+		setRacketName(input);
 		
-		char answer = 'x';
-		while (answer != 'Y' && answer != 'y' && answer != 'n' && answer != 'N') {
-			System.out.println("Do you have a madecountry? (Y/N)");
-			answer = input.next().charAt(0);
-			if (answer == 'y' || answer == 'Y') {
-				System.out.println("made country : ");
-				String madecountry = input.next();
-				this.setMadeCountry(madecountry);
-				break;
-			}
-			else if (answer == 'n' || answer == 'N') {
-				this.setMadeCountry("");
-				break;
-			}
-			else {
-			}
-		}
+		setRacketPrice(input);
 		
-		System.out.print("Racket's number : ");
-		int number = input.nextInt();
-		this.setNumber(number);
+		setRacketMadeCountry(input);
+		
+		setRacketExportCountry(input);
+
 	}
 	public void printInfo() {
 		String scompany = "none";
@@ -59,7 +40,6 @@ public class ApecsRacket extends Racket implements RacketInput{
 			break;
 		default:
 		}
-		System.out.println("Racket : " + name + "\tcompany : " + scompany + "\tprice : " + price + "\tmadecountry : " + madeCountry + "\tnumber : " + number);
-		
+		System.out.println("Racket : " + name + "\tcompany : " + scompany + "\tprice : " + price + "\tmadecountry : " + madeCountry + "\tnumber : " + number + "\texportedCountry : " + exportedCountry);			
 	}
 }
