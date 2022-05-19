@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -11,9 +12,14 @@ import racket.RacketInput;
 import racket.VictorRacket;
 import racket.YonexRacket;
 
-public class RacketManager {
+public class RacketManager implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1693044326174703716L;
+	 
 	ArrayList<RacketInput> rackets = new ArrayList<RacketInput>();
-	Scanner input;
+	transient Scanner input;
 	RacketManager(Scanner input){
 		this.input = input;
 	}

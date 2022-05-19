@@ -1,10 +1,15 @@
 package racket;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.PriceFormatException;
 
-public abstract class Racket implements RacketInput {
+public abstract class Racket implements RacketInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1117693268421754516L;
 	protected RacketCompany company;
 	protected String name;
 	protected int price;
