@@ -6,17 +6,25 @@ import exception.PriceFormatException;
 
 public interface RacketInput {
 
-	public int getNumber();
+
 	
 	public void getUserInput(Scanner input);
 
 	public void setNumber(int number);
+	
+	public int getNumber();
 
 	public void setName(String name);
+	
+	public String getName();
 
 	public void setPrice(int price) throws PriceFormatException;
+	
+	public int getPrice();
 
 	public void setMadeCountry(String madeCountry);
+	
+	public String getMadeCountry();
 
 	public void printInfo();
 	
@@ -27,4 +35,6 @@ public interface RacketInput {
 	public void setRacketPrice(Scanner input);
 	
 	public void setRacketMadeCountry(Scanner input);
+	
+
 }
