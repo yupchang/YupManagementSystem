@@ -24,6 +24,15 @@ public class RacketManager implements Serializable {
 	RacketManager(Scanner input){
 		this.input = input;
 	}
+	
+	public void AddRacket(String Number, String Name, String Price, String MadeCountry, String ExportCountry) {
+		RacketInput racketinput = new YonexRacket(RacketCompany.Yonex);
+		racketinput.getUserInput(input);
+		rackets.add(racketinput);
+	}
+	public void AddRacket(RacketInput racketinput) {
+		rackets.add(racketinput);
+	}
 	public void AddRacket() {
 		int company = 0;
 		RacketInput racketinput;

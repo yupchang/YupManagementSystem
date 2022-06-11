@@ -27,7 +27,8 @@ public class YonexRacket extends Racket{
 
 	public void printInfo() {
 		String scompany = getCompanyString();
-		System.out.println("Racket : " + name + "\tcompany : " + scompany + "\tprice : " + price + "\tmadecountry : " + madeCountry + "\tnumber : " + number + "\texportedCountry : " + exportedCountry);		}
+		System.out.println("number : " + number + "\tRacket : " + name + "\tcompany : " + scompany + "\tprice : " + price + "\tmadecountry : " + madeCountry +"\texportedCountry : " + exportedCountry);		
+	}
 	
 	public String getCompanyString() {
 		String scompany = "none";

@@ -25,6 +25,10 @@ public interface RacketInput {
 	public void setMadeCountry(String madeCountry);
 	
 	public String getMadeCountry();
+	
+	public void setExportedCountry(String exportCountry);
+	
+	public String getExportedCountry();
 
 	public void printInfo();
 	
@@ -35,6 +39,8 @@ public interface RacketInput {
 	public void setRacketPrice(Scanner input);
 	
 	public void setRacketMadeCountry(Scanner input);
+	
+	public void setRacketExportCountry(Scanner input);
 	
 
 }

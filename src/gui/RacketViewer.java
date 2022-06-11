@@ -15,9 +15,39 @@ import racket.RacketInput;
 public class RacketViewer extends JPanel {
 	
 	WindowFrame frame;
-
 	RacketManager racketmanager;
 	
+	public RacketManager getRacketmanager() {
+		return racketmanager;
+	}
+
+	public void setRacketmanager(RacketManager racketmanager) {
+		this.racketmanager = racketmanager;
+		this.removeAll();
+		
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Number");
+		model.addColumn("Name");
+		model.addColumn("Price");
+		model.addColumn("MadeCountry");
+		model.addColumn("ExportCountry");
+
+		for(int i = 0; i<racketmanager.size(); i++) {
+			Vector row = new Vector();
+			RacketInput RI = racketmanager.get(i);
+			row.add(RI.getNumber());
+			row.add(RI.getName());
+			row.add(RI.getPrice());
+			row.add(RI.getMadeCountry());
+			model.addRow(row);
+		}
+		
+		JTable table = new JTable(model);
+		JScrollPane sp = new JScrollPane(table);
+		
+		this.add(sp); 
+	}
+
 	public RacketViewer(WindowFrame frame, RacketManager RacketManager) {
 		this.frame = frame;
 		this.racketmanager = RacketManager;
@@ -47,7 +77,6 @@ public class RacketViewer extends JPanel {
 		JScrollPane sp = new JScrollPane(table);
 		
 		this.add(sp);
-		
 	}		
 
 }

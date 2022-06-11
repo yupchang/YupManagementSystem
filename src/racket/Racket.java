@@ -35,12 +35,13 @@ public abstract class Racket implements RacketInput, Serializable {
 		this.madeCountry = madeCountry;
 		this.number = number;
 	}
-	public Racket(RacketCompany company, String name, int price, String madeCountry, int number) {
+	public Racket(RacketCompany company, String name, int price, String madeCountry, int number, String exportedCountry) {
 		this.company = company;
 		this.name = name;
 		this.price = price;
 		this.madeCountry = madeCountry;
 		this.number = number;
+		this.exportedCountry = exportedCountry;
 	}
 	
 	
@@ -77,10 +78,10 @@ public abstract class Racket implements RacketInput, Serializable {
 	public void setNumber(int number) {
 		this.number = number;
 	}
-	public void setExport(String exportedCountry) {
+	public void setExportedCountry(String exportedCountry) {
 		this.exportedCountry = exportedCountry;
 	}
-	public String getExport() {
+	public String getExportedCountry() {
 		return this.exportedCountry;
 	}
 
@@ -110,7 +111,6 @@ public abstract class Racket implements RacketInput, Serializable {
 				System.out.println("Strange price. Put price between 10000 and 500000");
 			}
 		}
-
 	}
 	
 	public void setRacketMadeCountry(Scanner input) {
@@ -140,11 +140,11 @@ public abstract class Racket implements RacketInput, Serializable {
 			if (answer == 'y' || answer == 'Y') {
 				System.out.println("Input racket's exportcountry");
 				String a = input.next();
-				setExport(a);
+				this.setExportedCountry(a);
 				break;
 			}
 			else if (answer == 'n' || answer == 'N') {
-				this.setExport("");
+				this.setExportedCountry("");
 				break;
 			}
 			else {

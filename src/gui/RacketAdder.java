@@ -7,12 +7,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import Event.RacketAdderCancelListener;
+import Event.RacketAdderListener;
+import manager.RacketManager;
+
 public class RacketAdder extends JPanel{
 	
 	WindowFrame frame;
-
-	public RacketAdder(WindowFrame frame) {
+	RacketManager racketmanager;
+	
+	public RacketAdder(WindowFrame frame, RacketManager RacketManager) {
 		this.frame = frame;
+		this.racketmanager = RacketManager;
 	
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -47,8 +53,13 @@ public class RacketAdder extends JPanel{
 		panel.add(labelExportCountry);
 		panel.add(fieldExportCountry);
 		
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancel"));
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new RacketAdderListener(fieldNumber, fieldName, fieldPrice, fieldMadeCountry, fieldExportCountry, racketmanager));
+		JButton cancelButton = new JButton("cancel");
+		cancelButton.addActionListener(new RacketAdderCancelListener(frame));
+		
+		panel.add(saveButton);
+		panel.add(cancelButton);
 
 		
 		SpringUtilities.makeCompactGrid(panel, 6, 2, 6, 6, 6, 6);

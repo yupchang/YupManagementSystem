@@ -8,6 +8,7 @@ import manager.RacketManager;
 public class WindowFrame extends JFrame{
 	
 	RacketManager RacketManager;
+	
 	MenuSelection menuselection;
 	RacketAdder racketadder;
 	RacketViewer racketviewer;
@@ -20,7 +21,7 @@ public class WindowFrame extends JFrame{
 		
 		this.RacketManager = RacketManager;
 		menuselection = new MenuSelection(this);
-		racketadder = new RacketAdder(this);
+		racketadder = new RacketAdder(this, this.RacketManager);
 		racketviewer = new RacketViewer(this, this.RacketManager);
 
 
